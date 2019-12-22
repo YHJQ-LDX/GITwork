@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhjqsw.wm.water.dao.WmNrwMapper">
+
+  <resultMap id="BaseResultMap" type="com.yhjqsw.wm.water.model.WmNrw">
+	<id column="DeptNo" jdbcType="VARCHAR" property="deptno" />
+    <id column="MeterMonth" jdbcType="VARCHAR" property="metermonth" />
+	<result column="DeptName" jdbcType="VARCHAR" property="deptname" />
+	<result column="MonthIn" jdbcType="DECIMAL" property="monthin" />
+	<result column="MonthOut" jdbcType="DECIMAL" property="monthout" />
+	<result column="Nrw" jdbcType="DECIMAL" property="nrw" />
+	<result column="NrwRate" jdbcType="DECIMAL" property="nrwrate" />
+	<result column="Createtime" jdbcType="TIMESTAMP" property="createtime" />
+	<result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+	<result column="Remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  
+  <insert id="add" parameterType="com.yhjqsw.wm.water.model.WmNrw">
+    insert into wm_nrw
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        DeptNo,
+      </if>
+      <if test="deptname != null">
+        DeptName,
+      </if>
+      <if test="metermonth != null">
+        MeterMonth,
+      </if>
+      <if test="monthin != null">
+        MonthIn,
+      </if>
+      <if test="monthout != null">
+        MonthOut,
+      </if>
+      <if test="nrw != null">
+        Nrw,
+      </if>
+      <if test="nrwrate != null">
+        NrwRate,
+      </if>
+      <if test="createtime != null">
+        Createtime,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="metermonth != null">
+        #{metermonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthin != null">
+        #{monthin,jdbcType=DECIMAL},
+      </if>
+      <if test="monthout != null">
+        #{monthout,jdbcType=DECIMAL},
+      </if>
+      <if test="nrw != null">
+        #{nrw,jdbcType=DECIMAL},
+      </if>
+      <if test="nrwrate != null">
+        #{nrwrate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <insert id="total_add" parameterType="com.yhjqsw.wm.water.model.WmNrw">
+    insert into wm_nrw_total
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        DeptNo,
+      </if>
+      <if test="deptname != null">
+        DeptName,
+      </if>
+      <if test="metermonth != null">
+        MeterMonth,
+      </if>
+      <if test="monthin != null">
+        MonthIn,
+      </if>
+      <if test="monthout != null">
+        MonthOut,
+      </if>
+      <if test="nrw != null">
+        Nrw,
+      </if>
+      <if test="nrwrate != null">
+        NrwRate,
+      </if>
+      <if test="createtime != null">
+        Createtime,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="metermonth != null">
+        #{metermonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthin != null">
+        #{monthin,jdbcType=DECIMAL},
+      </if>
+      <if test="monthout != null">
+        #{monthout,jdbcType=DECIMAL},
+      </if>
+      <if test="nrw != null">
+        #{nrw,jdbcType=DECIMAL},
+      </if>
+      <if test="nrwrate != null">
+        #{nrwrate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.String">
+    delete from wm_nrw
+    where MeterMonth = #{metermonth,jdbcType=VARCHAR}
+  </delete>
+  
+  <update id="update" parameterType="com.yhjqsw.wm.water.model.WmNrw">
+    update wm_nrw
+    <set>
+      <if test="deptno != null">
+        DeptNo = #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DeptName = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="metermonth != null">
+        MeterMonth = #{metermonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthin != null">
+        MonthIn = #{monthin,jdbcType=DECIMAL},
+      </if>
+      <if test="monthout != null">
+        MonthOut = #{monthout,jdbcType=DECIMAL},
+      </if>
+      <if test="nrw != null">
+        Nrw = #{nrw,jdbcType=DECIMAL},
+      </if>
+      <if test="nrwrate != null">
+        NrwRate = #{nrwrate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        Createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DeptNo   = #{deptno,jdbcType=VARCHAR}
+    and MeterMonth = #{metermonth,jdbcType=VARCHAR}
+  </update>
+
+  <update id="total_update" parameterType="com.yhjqsw.wm.water.model.WmNrw">
+    update wm_nrw_total
+    <set>
+      <if test="deptno != null">
+        DeptNo = #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DeptName = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="metermonth != null">
+        MeterMonth = #{metermonth,jdbcType=VARCHAR},
+      </if>
+      <if test="monthin != null">
+        MonthIn = #{monthin,jdbcType=DECIMAL},
+      </if>
+      <if test="monthout != null">
+        MonthOut = #{monthout,jdbcType=DECIMAL},
+      </if>
+      <if test="nrw != null">
+        Nrw = #{nrw,jdbcType=DECIMAL},
+      </if>
+      <if test="nrwrate != null">
+        NrwRate = #{nrwrate,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        Createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DeptNo   = #{deptno,jdbcType=VARCHAR}
+    and MeterMonth = #{metermonth,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="findById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from wm_nrw
+    where MeterMonth = #{metermonth,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from wm_nrw where 1=1
+    <bind name="pattern" value="'%' + _parameter.deptname + '%'" />
+    <if test="deptname != null and deptname != ''">
+      and deptname like #{pattern}
+    </if>
+    <if test="begindate != null and begindate != '' ">
+      and metermonth &gt;= #{begindate}
+    </if>
+    <if test="enddate != null and enddate != '' ">
+      and metermonth &lt;= #{enddate}
+    </if>
+  </select>
+
+  <select id="findTotalPage" resultMap="BaseResultMap">
+    select * from wm_nrw_total where 1=1
+    <bind name="pattern" value="'%' + _parameter.deptname + '%'" />
+    <if test="deptname != null and deptname != ''">
+      and deptname like #{pattern}
+    </if>
+    <if test="begindate != null and begindate != '' ">
+      and metermonth &gt;= #{begindate}
+    </if>
+    <if test="enddate != null and enddate != '' ">
+      and metermonth &lt;= #{enddate}
+    </if>
+  </select>
+
+  <select id="selectCountByPrimaryKey"  resultType="int">
+    select count(1) from wm_nrw
+    where DeptNo   = #{deptno,jdbcType=VARCHAR}
+    and MeterMonth = #{metermonth,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

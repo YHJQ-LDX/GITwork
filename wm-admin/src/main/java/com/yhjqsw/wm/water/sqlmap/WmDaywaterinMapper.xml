@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhjqsw.wm.water.dao.WmDaywaterinMapper">
+
+  <resultMap id="BaseResultMap" type="com.yhjqsw.wm.water.model.WmDaywaterin">
+	<id column="DeptNo" jdbcType="VARCHAR" property="deptno" />
+    <id column="WaterMNo" jdbcType="VARCHAR" property="watermno" />
+    <id column="MeterDate" jdbcType="VARCHAR" property="meterdate" />
+	<result column="DeptName" jdbcType="VARCHAR" property="deptname" />
+	<result column="WaterMValue" jdbcType="DECIMAL" property="watermvalue" />
+	<result column="WaterMImage" jdbcType="VARCHAR" property="watermimage" />
+	<result column="WaterIn" jdbcType="VARCHAR" property="waterin" />
+	<result column="CommitFlag" jdbcType="VARCHAR" property="commitflag" />
+	<result column="CheckFlag" jdbcType="VARCHAR" property="checkflag" />
+	<result column="CommitUserCode" jdbcType="VARCHAR" property="commitusercode" />
+	<result column="CommitUserName" jdbcType="VARCHAR" property="commitusername" />
+	<result column="CheckUserCode" jdbcType="VARCHAR" property="checkusercode" />
+	<result column="CheckUsername" jdbcType="VARCHAR" property="checkusername" />
+	<result column="ReDoAppFlag" jdbcType="VARCHAR" property="redoappflag" />
+	<result column="ReDoAppTimes" jdbcType="INTEGER" property="redoapptimes" />
+	<result column="CreateBy" jdbcType="VARCHAR" property="createby" />
+	<result column="Createtime" jdbcType="TIMESTAMP" property="createtime" />
+	<result column="LastUpdateBy" jdbcType="VARCHAR" property="lastupdateby" />
+	<result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+	<result column="Remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+
+  <insert id="add" parameterType="com.yhjqsw.wm.water.model.WmDaywaterin">
+    insert into wm_daywaterin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        deptno,
+      </if>
+      <if test="deptname != null">
+        deptname,
+      </if>
+      <if test="watermno != null">
+        watermno,
+      </if>
+      <if test="meterdate != null">
+        meterdate,
+      </if>
+      <if test="watermvalue != null">
+        watermvalue,
+      </if>
+      <if test="watermimage != null">
+        WaterMImage,
+      </if>
+      <if test="waterin != null">
+        waterin,
+      </if>
+      <if test="commitflag != null">
+        commitflag,
+      </if>
+      <if test="checkflag != null">
+        checkflag,
+      </if>
+      <if test="commitusercode != null">
+        commitusercode,
+      </if>
+      <if test="commitusername != null">
+        commitusername,
+      </if>
+      <if test="checkusercode != null">
+        checkusercode,
+      </if>
+      <if test="checkusername != null">
+        checkusername,
+      </if>
+      <if test="redoappflag != null">
+        redoappflag,
+      </if>
+      <if test="redoappflag != null">
+        redoappflag,
+      </if>
+      <if test="createby != null">
+        createby,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="lastupdateby != null">
+        lastupdateby,
+      </if>
+      <if test="lastupdatetime != null">
+        lastupdatetime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptno != null">
+        #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="watermno != null">
+        #{watermno,jdbcType=VARCHAR},
+      </if>
+      <if test="meterdate != null">
+        #{meterdate,jdbcType=DATE},
+      </if>
+      <if test="watermvalue != null">
+        #{watermvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="watermimage != null">
+        #{watermimage,jdbcType=VARCHAR},
+      </if>
+      <if test="waterin != null">
+        #{waterin,jdbcType=VARCHAR},
+      </if>
+      <if test="commitflag != null">
+        #{commitflag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkflag != null">
+        #{checkflag,jdbcType=VARCHAR},
+      </if>
+      <if test="commitusercode != null">
+        #{commitusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="commitusername != null">
+        #{commitusername,jdbcType=VARCHAR},
+      </if>
+      <if test="checkusercode != null">
+        #{checkusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkusername != null">
+        #{checkusername,jdbcType=VARCHAR},
+      </if>
+      <if test="redoappflag != null">
+        #{redoappflag,jdbcType=VARCHAR},
+      </if>
+      <if test="redoapptimes != null">
+        #{redoapptimes,jdbcType=INTEGER},
+      </if>
+      <if test="createby != null">
+        #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateby != null">
+        #{lastupdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from wm_daywaterin
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="com.yhjqsw.wm.water.model.WmDaywaterin">
+    update wm_daywaterin
+    <set>
+      <if test="deptno != null">
+        DeptNo = #{deptno,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DeptName = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="watermno != null">
+        WaterMNo = #{watermno,jdbcType=VARCHAR},
+      </if>
+      <if test="meterdate != null">
+        MeterDate = #{meterdate,jdbcType=DATE},
+      </if>
+      <if test="watermvalue != null">
+        WaterMValue = #{watermvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="watermimage != null">
+        WaterMImage = #{watermimage,jdbcType=VARCHAR},
+      </if>
+      <if test="waterin != null">
+        WaterIn = #{waterin,jdbcType=VARCHAR},
+      </if>
+      <if test="applyflag != null">
+        ApplyFlag = #{applyflag,jdbcType=VARCHAR},
+      </if>
+      <if test="applyreason != null">
+        ApplyReason = #{applyreason,jdbcType=VARCHAR},
+      </if>
+      <if test="applyuser != null">
+        ApplyUser = #{applyuser,jdbcType=VARCHAR},
+      </if>
+      <if test="commitflag != null">
+        CommitFlag = #{commitflag,jdbcType=VARCHAR},
+      </if>
+      <if test="commitflag != null">
+        CommitFlag = #{commitflag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkflag != null">
+        CheckFlag = #{checkflag,jdbcType=VARCHAR},
+      </if>
+      <if test="commitusercode != null">
+        CommitUserCode = #{commitusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="commitusername != null">
+        CommitUserName = #{commitusername,jdbcType=VARCHAR},
+      </if>
+      <if test="checkusercode != null">
+        CheckUserCode = #{checkusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkusername != null">
+        CheckUsername = #{checkusername,jdbcType=VARCHAR},
+      </if>
+      <if test="redoappflag != null">
+        ReDoAppFlag = #{redoappflag,jdbcType=VARCHAR},
+      </if>
+      <if test="redoapptimes != null">
+        ReDoAppTimes = #{redoapptimes,jdbcType=INTEGER},
+      </if>
+      <if test="createby != null">
+        CreateBy = #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        Createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateby != null">
+        LastUpdateBy = #{lastupdateby,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateCommitflagById">
+      UPDATE wm_daywaterin SET commitflag = 1
+      WHERE id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateApplyflagById">
+    UPDATE wm_daywaterin SET applyflag = 1,ApplyReason = #{applyreason,jdbcType=VARCHAR}
+    WHERE id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updatereject">
+    UPDATE wm_daywaterin SET applyflag = 0, commitflag=0, ApplyReason = ''
+    WHERE id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateCheckflagById">
+    UPDATE wm_daywaterin SET checkflag = 1
+    WHERE id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select * from wm_daywaterin
+    where MeterDate = #{meterdate,jdbcType=DATE}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap" >
+    select * from wm_daywaterin WHERE  commitflag = 0
+    <bind name="pattern" value="'%' + _parameter.deptname + '%'" />
+    <if test="username != null and username != '' ">
+      and createBy = #{username}
+    </if>
+    <if test="deptname != null and deptname != ''">
+      and deptname like #{pattern}
+    </if>
+    <if test="begindate != null and begindate != '' ">
+      and meterdate &gt;= #{begindate}
+    </if>
+    <if test="enddate != null and enddate != '' ">
+      and meterdate &lt;= #{enddate}
+    </if>
+
+  </select>
+
+  <select id="findSubmitPage" resultMap="BaseResultMap" >
+    select * from wm_daywaterin WHERE 1=1
+    <bind name="pattern" value="'%' + _parameter.deptname + '%'" />
+    <if test="username != null and username != '' ">
+      and createBy = #{username}
+    </if>
+    <if test="commit != null and commit != '' ">
+      and commitFlag = #{commit}
+    </if>
+    <if test="apply != null and apply != '' ">
+      and applyFlag = #{apply}
+    </if>
+    <if test="checked != null and checked != '' ">
+      and checkFlag = #{checked}
+    </if>
+    <if test="deptname != null and deptname != ''">
+      and deptname like #{pattern}
+    </if>
+    <if test="begindate != null and begindate != '' ">
+      and meterdate &gt;= #{begindate}
+    </if>
+    <if test="enddate != null and enddate != '' ">
+      and meterdate &lt;= #{enddate}
+    </if>
+
+  </select>
+
+  <select id="selectCountByPrimaryKey" resultType="int">
+    SELECT count(1) from wm_daywaterin WHERE DeptNo=#{deptno}
+    and WaterMNo=#{watermno} and MeterDate=#{meterdate}
+  </select>
+
+  <select id="selectPreTotalCountByPrimaryKey"  resultType="int">
+    SELECT count(1) from wm_daywaterin WHERE DeptNo=#{deptno}
+    and WaterMNo=#{watermno} and MeterDate &lt;= #{meterdate}
+  </select>
+
+  <select id="selectWaterMValue"  resultType="BigDecimal">
+    SELECT WaterMValue from wm_daywaterin WHERE DeptNo=#{deptno}
+    and WaterMNo=#{watermno} and MeterDate = #{meterdate}
+  </select>
+
+  <select id="selectInitWaterMValue"  resultType="BigDecimal">
+    SELECT WaterMInitValue from waterm_init WHERE DeptId=#{deptno}
+    and WaterMNo=#{watermno}
+  </select>
+
+  <select id="selectMonthWaterIn" parameterType="java.lang.String" resultType="java.util.HashMap">
+    SELECT 	t.deptno,t.deptname,SUM( t.WaterIn ) AS monthwaterin
+      FROM wm_daywaterin t
+     WHERE
+	    t.CheckFlag=1 and
+	    t.MeterDate &gt; #{preday} and
+	    t.MeterDate &lt;= #{day}
+      GROUP BY
+	    t.DeptNo
+  </select>
+  
+</mapper>
